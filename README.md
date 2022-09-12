@@ -8,4 +8,4 @@
 
 9月12日：学习flask和echarts等web渲染，初步掌握，从网站上寻找出合适的HTML5网页模板和Apache ECharts模板，作为可视化的展示模板。
 
-9月13日：学习excel数据转sqlite数据库文件，一直有bug搞不懂。随后直接使用前几日保存的excel数据作为可视化的数据源。目前以实现excel表中数据成功接入HTML5，并使用flask和boostrap等成功渲染一个大表格，采用斑马线格式和数据高亮等等。
+9月13日：学习excel数据转sqlite数据库文件，一直有bug搞不懂。随后直接使用前几日保存的excel数据作为可视化的数据源。目前以实现excel表中数据成功接入HTML5，并使用flask和boostrap等成功渲染一个大表格，采用斑马线格式和数据高亮等等。 
