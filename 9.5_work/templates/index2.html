@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+<head>
+    <style>
+        .my_foot {
+            background-color: #0b0b0b;
+            width: 100%;
+            height: 60px;
+        }
+
+        .my_text {
+            line-height: 60px;
+            text-align: right;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>各省数据可视化</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/css/main.css">
+    <script src="../static/js/echarts.min.js"></script>
+</head>
+<body>
+
+<header class="default-header">
+    <nav class="navbar navbar-expand-lg  navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="../static/img/logo.png" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li><a href="/">主页</a></li>
+                    <li><a href="/#plan">可视化地图</a></li>
+                    <li><a href="/#team">港澳台</a></li>
+                    <li class="dropdown float-right">
+                        <a class="dropdown-toggle" href="#" id="navbar_drop" data-toggle="dropdown">
+                            各省数据
+                        </a>
+                        <div class="dropdown-menu" style="column-count: 4">
+                            <a class="dropdown-item" href="/province/中国内地">中国内地</a>
+                            <a class="dropdown-item" href="/province/安徽">安徽</a>
+                            <a class="dropdown-item" href="/province/北京">北京</a>
+                            <a class="dropdown-item" href="/province/重庆">重庆</a>
+                            <a class="dropdown-item" href="/province/福建">福建</a>
+                            <a class="dropdown-item" href="/province/甘肃">甘肃</a>
+                            <a class="dropdown-item" href="/province/广东">广东</a>
+                            <a class="dropdown-item" href="/province/广西">广西</a>
+                            <a class="dropdown-item" href="/province/贵州">贵州</a>
+                            <a class="dropdown-item" href="/province/海南">海南</a>
+                            <a class="dropdown-item" href="/province/河北">河北</a>
+                            <a class="dropdown-item" href="/province/河南">河南</a>
+                            <a class="dropdown-item" href="/province/黑龙江">黑龙江</a>
+                            <a class="dropdown-item" href="/province/湖北">湖北</a>
+                            <a class="dropdown-item" href="/province/湖南">湖南</a>
+                            <a class="dropdown-item" href="/province/吉林">吉林</a>
+                            <a class="dropdown-item" href="/province/江苏">江苏</a>
+                            <a class="dropdown-item" href="/province/江西">江西</a>
+                            <a class="dropdown-item" href="/province/辽宁">辽宁</a>
+                            <a class="dropdown-item" href="/province/内蒙古">内蒙古</a>
+                            <a class="dropdown-item" href="/province/宁夏">宁夏</a>
+                            <a class="dropdown-item" href="/province/青海">青海</a>
+                            <a class="dropdown-item" href="/province/山东">山东</a>
+                            <a class="dropdown-item" href="/province/山西">山西</a>
+                            <a class="dropdown-item" href="/province/陕西">陕西</a>
+                            <a class="dropdown-item" href="/province/上海">上海</a>
+                            <a class="dropdown-item" href="/province/四川">四川</a>
+                            <a class="dropdown-item" href="/province/天津">天津</a>
+                            <a class="dropdown-item" href="/province/西藏">西藏</a>
+                            <a class="dropdown-item" href="/province/新疆">新疆</a>
+                            <a class="dropdown-item" href="/province/云南">云南</a>
+                            <a class="dropdown-item" href="/province/浙江">浙江</a>
+                        </div>
+                    </li>
+                    <li class="dropdown float-right">
+                        <a class="dropdown-toggle" href="#" id="navbar_drop" data-toggle="dropdown">
+                            详细表格
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" target="_blank" href="/totle/0">本土新增确诊病例</a>
+                            <a class="dropdown-item" target="_blank" href="/totle/1">本土新增无症状感染者</a>
+                        </div>
+                    </li>
+                    <li class="dropdown float-right">
+                        <a class="dropdown-toggle" href="#" id="navbar_drop" data-toggle="dropdown">
+                            更多
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" target="_blank"
+                               href="http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml">卫健委官网</a>
+                            <a class="dropdown-item" target="_blank"
+                               href="https://bbs.csdn.net/forums/fzuse_k2022">K班社区</a>
+                            <a class="dropdown-item" target="_blank"
+                               href="https://blog.csdn.net/LRT1719446064">个人博客</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<section class="about-area section-gap" id="home">
+    <div class="container">
+        <div class="row align-items-center">
+            <div id="main" style="width: 800px;height:400px;margin: auto"></div>
+            <script type="text/javascript">
+                var chartDom = document.getElementById('main');
+                var myChart = echarts.init(chartDom);
+                var option;
+                option = {
+                    title: {
+                        left: 'center',
+                        text: {{ province_name|tojson }} +'疫情数据',
+                        subtext: '--时间轴可伸缩和移动--'
+                    },
+                    tooltip: {
+                        trigger: 'axis',
+                        position: function (pt) {
+                            return [pt[0], '10%'];
+                        }
+                    },
+                    legend: {
+                        data: ['新增本土病例', '新增本土无症状']
+                    },
+                    grid: {
+                        left: '3%',
+                        right: '4%',
+                        bottom: '15%',
+                        containLabel: true
+                    },
+                    toolbox: {
+                        feature: {
+                            saveAsImage: {}
+                        }
+                    },
+                    xAxis: {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: {{ day_list|tojson }}
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    dataZoom: [
+                        {
+                            type: 'inside',
+                            start: 60,
+                            end: 100
+                        },
+                        {
+                            start: 0,
+                            end: 20
+                        }
+                    ],
+                    series: [
+                        {
+                            name: '新增确诊病例',
+                            type: 'line',
+                            stack: 'Total',
+                            color: 'red',
+                            data: {{ list_data[0] }},
+                            smooth: true
+                        },
+                        {
+                            name: '新增无症状感染者',
+                            type: 'line',
+                            stack: 'Total',
+                            data: {{ list_data[1] }},
+                            smooth: true
+                        }
+                    ]
+                };
+                option && myChart.setOption(option);
+            </script>
+        </div>
+    </div>
+</section>
+
+<footer class="my_foot">
+    <div class="my_text">
+        <<--软工K班： 032002123 李若彤-->>
+    </div>
+</footer>
+<script src="../static/js/jquery-2.2.4.min.js"></script>
+<script src="../static/js/bootstrap.min.js"></script>
+<script src="../static/js/jquery.sticky.js"></script>
+<script src="../static/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+	<!DOCTYPE html>
+	<html lang="zxx" class="no-js">
+	<head>
+		<!-- Mobile Specific Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Favicon-->
+		<link rel="shortcut icon" href="img/fav.png">
+		<!-- Author Meta -->
+		<meta name="author" content="colorlib">
+		<!-- Meta Description -->
+		<meta name="description" content="">
+		<!-- Meta Keyword -->
+		<meta name="keywords" content="">
+		<!-- meta character set -->
+		<meta charset="UTF-8">
+		<!-- Site Title -->
+		<title>疫情可视化</title>
+
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+			<!--
+			CSS
+			============================================= -->
+			<link rel="stylesheet" href="../static/css/linearicons.css">
+			<link rel="stylesheet" href="../static/css/font-awesome.min.css">
+			<link rel="stylesheet" href="../static/css/jquery.DonutWidget.min.css">
+			<link rel="stylesheet" href="../static/css/bootstrap.css">
+			<link rel="stylesheet" href="../static/css/owl.carousel.css">
+			<link rel="stylesheet" href="../static/css/main.css">
+        <script src="../static/js/echarts.min.js"></script>
+		</head>
+		<body>
+
+			<!-- Start Header Area -->
+			<header class="default-header">
+				<nav class="navbar navbar-expand-lg  navbar-light">
+					<div class="container">
+						  <a class="navbar-brand" href="index.html">
+						  	<img src="../static/img/logo.png" alt="">
+						  </a>
+						  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						    <span class="navbar-toggler-icon"></span>
+						  </button>
+
+						  <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
+						    <ul class="navbar-nav">
+								<li><a href="#home">主页</a></li>
+								<li><a href="#service">各省疫情</a></li>
+								<li><a href="#plan">详细数据</a></li>
+								<li><a href="#team">港澳台</a></li>
+								<li><a href="#blog">地图</a></li>
+							   <!-- Dropdown -->
+							    <li class="dropdown">
+							      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+							        更多
+							      </a>
+							      <div class="dropdown-menu">
+							        <a class="dropdown-item" href="generic.html">K班社区</a>
+							        <a class="dropdown-item" href="elements.html">个人博客</a>
+							      </div>
+							    </li>
+						    </ul>
+						  </div>
+					</div>
+				</nav>
+			</header>
+			<!-- End Header Area -->
+
+			<!-- Start about Area -->
+			<section class="about-area section-gap" id = "home">
+				<div class="container">
+					<div class="row align-items-center">
+						<div id="main" style="width: 1000px;height:600px;"></div>
+                            <script type="text/javascript">
+                                var chartDom = document.getElementById('main');
+                                var myChart = echarts.init(chartDom);
+                                var option;
+                                var dateList = {{ day_list|tojson }};
+                                var valueList_1 = {{ list_data[0] }};
+                                var valueList_2 = {{ list_data[1] }}
+                                option = {
+                                  visualMap: [
+                                    {
+                                      show: false,
+                                      type: 'continuous',
+                                      seriesIndex: 0,
+                                      min: 0,
+                                      max: 400
+                                    },
+                                    {
+                                      show: false,
+                                      type: 'continuous',
+                                      seriesIndex: 1,
+                                      dimension: 0,
+                                      min: 0,
+                                      max: dateList.length - 1
+                                    }
+                                  ],
+                                  title: [
+                                    {
+                                      left: 'center',
+                                      text: {{ province_name|tojson }} + '新增确诊病例'
+                                    },
+                                    {
+                                      top: '55%',
+                                      left: 'center',
+                                      text: {{ province_name|tojson }} + '新增无症状感染者'
+                                    }
+                                  ],
+                                  tooltip: {
+                                    trigger: 'axis'
+                                  },
+                                  xAxis: [
+                                    {
+                                      data: dateList
+                                    },
+                                    {
+                                      data: dateList,
+                                      gridIndex: 1
+                                    }
+                                  ],
+                                  yAxis: [
+                                    {},
+                                    {
+                                      gridIndex: 1
+                                    }
+                                  ],
+                                  grid: [
+                                    {
+                                      bottom: '60%'
+                                    },
+                                    {
+                                      top: '60%'
+                                    }
+                                  ],
+                                  series: [
+
+                                    {
+                                      type: 'line',
+                                      showSymbol: false,
+                                      data: valueList_1
+                                    },
+                                    {
+                                      type: 'line',
+                                      showSymbol: false,
+                                      data: valueList_2,
+                                      xAxisIndex: 1,
+                                      yAxisIndex: 1
+                                    }
+                                  ]
+                                };
+
+                                option && myChart.setOption(option);
+                            </script>
+					</div>
+				</div>
+			</section>
+
+			<!-- start footer Area -->
+			<footer class="footer-area section-gap">
+				<div class="container">
+					<div class="row d-flex">
+
+            <p class="col-lg-8 col-sm-12 footer-text m-0 text-white">Copyright &copy; 2018.Company name All rights reserved.</p>
+
+						<div class="col-lg-4 col-sm-12 footer-social">
+							<a href="#"><i class="fa fa-facebook"></i></a>
+							<a href="#"><i class="fa fa-twitter"></i></a>
+							<a href="#"><i class="fa fa-dribbble"></i></a>
+							<a href="#"><i class="fa fa-behance"></i></a>
+						</div>
+					</div>
+				</div>
+			</footer>
+			<!-- End footer Area -->
+
+			<script src="../static/js/jquery-2.2.4.min.js"></script>
+			<script src="../static/js/popper.min.js"></script>
+			<script src="../static/js/bootstrap.min.js"></script>
+			<script src="../static/js/jquery.ajaxchimp.min.js"></script>
+			<script src="../static/js/owl.carousel.min.js"></script>
+
+			<script src="../static/js/highcharts.js"></script>
+			<script src="js/modules/exporting.js"></script>
+			<script src="../static/js/chartscript.js"></script>
+
+			<script src="../static/js/jquery.sticky.js"></script>
+			<script src="../static/js/jquery.magnific-popup.min.js"></script>
+			<script src="../static/js/main.js"></script>
+
+		</body>
+	</html>
