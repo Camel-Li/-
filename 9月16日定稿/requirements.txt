@@ -1,0 +1,19 @@
+re
+time
+requests
+openpyxl
+bs4m, BeautifulSoup
+Alignment (from openpyxl)
+tqdm (from tqdm)
+flask (包含了Werkzeug和Jinja2)
+
+以下是调用库的方法:
+import time
+import requests
+import re
+import openpyxl
+
+from bs4 import BeautifulSoup
+from openpyxl.styles import Alignment
+from tqdm import tqdm
+from flask import Flask, render_template
