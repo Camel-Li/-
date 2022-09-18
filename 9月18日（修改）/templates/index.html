@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+<head>
+    <style>
+        .my_foot {
+            background-color: #0b0b0b;
+            width: 100%;
+            height: 60px;
+        }
+
+        .my_text {
+            line-height: 60px;
+            text-align: right;
+
+        }
+    </style>
+    <style>
+        .centerItem1 {
+            width: 856px;
+            height: 640px;
+            background-color: rgba(255, 255, 255, 0);
+            margin: 110px auto 0 auto;
+        }
+    </style>
+    <style>
+        .centerItem2 {
+            width: 856px;
+            height: 640px;
+            background-color: rgba(255, 255, 255, 0);
+            margin: 110px auto 0 auto;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>疫情可视化</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/css/main.css">
+    <script type="text/javascript" src="../static/js/echarts.min.js"></script>
+</head>
+
+<body>
+<header class="default-header">
+    <nav class="navbar navbar-expand-lg  navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="../static/img/logo.png" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li><a href="#home">主页</a></li>
+                    <li><a href="#plan">可视化地图</a></li>
+                    <li><a href="#team">港澳台</a></li>
+                    <li class="dropdown float-right">
+                        <a class="dropdown-toggle" href="#" id="navbar_drop" data-toggle="dropdown">
+                            各省数据
+                        </a>
+                        <div class="dropdown-menu" style="column-count: 4">
+                            <a class="dropdown-item" target="_blank" href="/province/中国内地">中国内地</a>
+                            <a class="dropdown-item" target="_blank" href="/province/安徽">安徽</a>
+                            <a class="dropdown-item" target="_blank" href="/province/北京">北京</a>
+                            <a class="dropdown-item" target="_blank" href="/province/重庆">重庆</a>
+                            <a class="dropdown-item" target="_blank" href="/province/福建">福建</a>
+                            <a class="dropdown-item" target="_blank" href="/province/甘肃">甘肃</a>
+                            <a class="dropdown-item" target="_blank" href="/province/广东">广东</a>
+                            <a class="dropdown-item" target="_blank" href="/province/广西">广西</a>
+                            <a class="dropdown-item" target="_blank" href="/province/贵州">贵州</a>
+                            <a class="dropdown-item" target="_blank" href="/province/海南">海南</a>
+                            <a class="dropdown-item" target="_blank" href="/province/河北">河北</a>
+                            <a class="dropdown-item" target="_blank" href="/province/河南">河南</a>
+                            <a class="dropdown-item" target="_blank" href="/province/黑龙江">黑龙江</a>
+                            <a class="dropdown-item" target="_blank" href="/province/湖北">湖北</a>
+                            <a class="dropdown-item" target="_blank" href="/province/湖南">湖南</a>
+                            <a class="dropdown-item" target="_blank" href="/province/吉林">吉林</a>
+                            <a class="dropdown-item" target="_blank" href="/province/江苏">江苏</a>
+                            <a class="dropdown-item" target="_blank" href="/province/江西">江西</a>
+                            <a class="dropdown-item" target="_blank" href="/province/辽宁">辽宁</a>
+                            <a class="dropdown-item" target="_blank" href="/province/内蒙古">内蒙古</a>
+                            <a class="dropdown-item" target="_blank" href="/province/宁夏">宁夏</a>
+                            <a class="dropdown-item" target="_blank" href="/province/青海">青海</a>
+                            <a class="dropdown-item" target="_blank" href="/province/山东">山东</a>
+                            <a class="dropdown-item" target="_blank" href="/province/山西">山西</a>
+                            <a class="dropdown-item" target="_blank" href="/province/陕西">陕西</a>
+                            <a class="dropdown-item" target="_blank" href="/province/上海">上海</a>
+                            <a class="dropdown-item" target="_blank" href="/province/四川">四川</a>
+                            <a class="dropdown-item" target="_blank" href="/province/天津">天津</a>
+                            <a class="dropdown-item" target="_blank" href="/province/西藏">西藏</a>
+                            <a class="dropdown-item" target="_blank" href="/province/新疆">新疆</a>
+                            <a class="dropdown-item" target="_blank" href="/province/云南">云南</a>
+                            <a class="dropdown-item" target="_blank" href="/province/浙江">浙江</a>
+                        </div>
+                    </li>
+                    <li class="dropdown float-right">
+                        <a class="dropdown-toggle" href="#" id="navbar_drop" data-toggle="dropdown">
+                            详细表格
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" target="_blank" href="/totle/0">本土新增确诊病例</a>
+                            <a class="dropdown-item" target="_blank" href="/totle/1">本土新增无症状感染者</a>
+                        </div>
+                    </li>
+                    <!-- Dropdown -->
+                    <li class="dropdown float-right">
+                        <a class="dropdown-toggle" href="#" id="navbar_drop" data-toggle="dropdown">
+                            更多
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" target="_blank"
+                               href="http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml">卫健委官网</a>
+                            <a class="dropdown-item" target="_blank"
+                               href="https://bbs.csdn.net/forums/fzuse_k2022">K班社区</a>
+                            <a class="dropdown-item" target="_blank"
+                               href="https://blog.csdn.net/LRT1719446064">个人博客</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<section class="about-area section-gap" id="home">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 about-left">
+                <div id="echarts_1" style="min-width: 100%; height: 400px; margin: 0 auto"></div>
+                <script type="text/javascript">
+                    var chartDom = document.getElementById('echarts_1');
+                    var myChart = echarts.init(chartDom);
+                    var option;
+                    option = {
+                        title: {
+                            text: {{ day_names[day_len - 1]|tojson }} +'本土疫情'
+                        },
+                        tooltip: {
+                            trigger: 'axis'
+                        },
+                        legend: {
+                            data: ['新增本土病例', '新增本土无症状'],
+                            right: 20,
+                            y: 'left',
+                        },
+                        grid: {
+                            left: '3%',
+                            right: '4%',
+                            bottom: '3%',
+                            containLabel: true
+                        },
+                        toolbox: {
+                            feature: {
+                                saveAsImage: {}
+                            }
+                        },
+                        xAxis: {
+                            type: 'category',
+                            boundaryGap: false,
+                            data: {{ day_names|tojson }}
+                        },
+                        yAxis: {
+                            type: 'value'
+                        },
+                        series: [
+                            {
+                                name: '新增本土病例',
+                                type: 'line',
+                                stack: 'Total',
+                                color: 'red',
+                                data: {{ chinese_home_data[0] }}
+                            },
+                            {
+                                name: '新增本土无症状',
+                                type: 'line',
+                                stack: 'Total',
+                                color: 'orange',
+                                data: {{ chinese_home_data[1] }}
+                            }
+                        ]
+                    };
+                    option && myChart.setOption(option);
+                </script>
+            </div>
+            <div class="col-lg-6 about-right">
+                <h1>
+                    {{ day_names[day_len - 1] }} <br>
+                    <br>
+                    本土新增确诊： {{ chinese_home_data[0][day_len - 1] }} 例<br>
+                    <br>
+                    新增无症状感染者： {{ chinese_home_data[1][day_len - 1] }} 例
+                </h1>
+                <p class="pt-30 pb-30">
+                    <a target="_blank" href={{ host_7[0] }}><strong>7天内新增确诊： {{ host_7[1] }}<br></strong></a>
+                    <br>
+                    <a target="_blank" href={{ host_30[0] }}><strong>30天内新增确诊： {{ host_30[1] }}<br></strong></a>
+                </p>
+                <a href="#service" class="primary-btn2 header-btn text-uppercase">Go->各省疫情</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="service-area section-gap" id="service">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-10 col-lg-8">
+                <div class="title text-center">
+                    <h1 class="mb-10">今日本土新增病例</h1>
+                    <p>--数据源自卫健委--</p>
+                </div>
+            </div>
+        </div>
+        <div class="single-service">
+            <div id="echarts_2" style="width: 800px;height:450px;min-width: 80%; margin: 0 auto"></div>
+            <script type="text/javascript">
+                var chartDom = document.getElementById('echarts_2');
+                var myChart = echarts.init(chartDom);
+                var option;
+                var list1 = {{ province_names_list|tojson }};
+                list1.shift()
+                let dataAxis = list1;
+                var list2 = {{ today_list[0] }}
+                    list2.shift()
+                let data = list2;
+                let yMax = 500;
+                let dataShadow = [];
+                for (let i = 0; i < data.length; i++) {
+                    dataShadow.push(yMax);
+                }
+                option = {
+                    title: {
+                        text: {{ day_names[day_len - 1]|tojson }} +'各省本土新增确诊病例',
+                        subtext: '鼠标滚轮可伸缩'
+                    },
+                    xAxis: {
+                        data: dataAxis,
+                        axisLabel: {
+                            show: true,
+                            textStyle: {
+                                color: "#000" //X轴文字颜色
+                            },
+                            interval: 0,
+                            formatter: function (value) {
+                                //x轴的文字改为竖版显示
+                                var str = value.split("");
+                                return str.join("\n");
+                            }
+
+                        },
+                        axisTick: {
+                            show: false
+                        },
+                        axisLine: {
+                            show: false
+                        },
+                        z: 10
+                    },
+                    yAxis: {
+                        axisLine: {
+                            show: false
+                        },
+                        axisTick: {
+                            show: false
+                        },
+                        axisLabel: {
+                            color: '#999'
+                        }
+                    },
+                    dataZoom: [
+                        {
+                            type: 'inside'
+                        }
+                    ],
+                    series: [
+                        {
+                            type: 'bar',
+                            showBackground: true,
+                            itemStyle: {
+                                normal: {
+                                    label: {
+                                        show: true, //开启显示
+                                        position: 'top', //在上方显示
+                                        textStyle: { //数值样式
+                                            color: 'black',
+                                            fontSize: 12
+                                        }
+                                    }
+                                },
+                                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                    {offset: 0, color: '#a43030'},
+                                    {offset: 1, color: '#d83131'}
+                                ])
+                            },
+                            emphasis: {
+                                itemStyle: {
+                                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                        {offset: 0, color: '#d83131'},
+                                        {offset: 1, color: '#8e1b1b'}
+                                    ])
+                                }
+                            },
+                            data: data
+                        }
+                    ]
+                };
+                const zoomSize = 6;
+                myChart.on('click', function (params) {
+                    console.log(dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)]);
+                    myChart.dispatchAction({
+                        type: 'dataZoom',
+                        startValue: dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)],
+                        endValue:
+                            dataAxis[Math.min(params.dataIndex + zoomSize / 2, data.length - 1)]
+                    });
+                });
+                myChart.setOption(option, true)
+            </script>
+        </div>
+    </div>
+</section>
+
+<section class="price-area section-gap" id="plan">
+    <div class="container">
+        <script type="text/javascript" src="../static/js/china.js"></script>
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-30 col-lg-8">
+                <div class="title text-center">
+                    <h1 class="mb-10">中国地图（疫情数据可视化模块）</h1>
+                    <p>可伸缩和移动</p>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div id="mapBox1" class="centerItem1"></div>
+            <script>
+                var map_1 = echarts.init(document.getElementById('mapBox1'));
+
+                function randomData() {
+                    return Math.round(Math.random() * 500);
+                }
+
+                var list1 =
+                {{ list_map[0] }}
+                var list3 =
+                {{ list_map[2] }}
+                var mydata = [{'name': '安徽', 'value': list1[0]}, {'name': '北京', 'value': list1[1]},
+                    {'name': '重庆', 'value': list1[2]}, {'name': '福建', 'value': list1[3]},
+                    {'name': '甘肃', 'value': list1[4]}, {'name': '广东', 'value': list1[5]},
+                    {'name': '广西', 'value': list1[6]}, {'name': '贵州', 'value': list1[7]},
+                    {'name': '海南', 'value': list1[8]}, {'name': '河北', 'value': list1[9]},
+                    {'name': '河南', 'value': list1[10]}, {'name': '黑龙江', 'value': list1[11]},
+                    {'name': '湖北', 'value': list1[12]}, {'name': '湖南', 'value': list1[13]},
+                    {'name': '吉林', 'value': list1[14]}, {'name': '江苏', 'value': list1[15]},
+                    {'name': '江西', 'value': list1[16]}, {'name': '辽宁', 'value': list1[17]},
+                    {'name': '内蒙古', 'value': list1[18]}, {'name': '宁夏', 'value': list1[19]},
+                    {'name': '青海', 'value': list1[20]}, {'name': '山东', 'value': list1[21]},
+                    {'name': '山西', 'value': list1[22]}, {'name': '陕西', 'value': list1[23]},
+                    {'name': '上海', 'value': list1[24]}, {'name': '四川', 'value': list1[25]},
+                    {'name': '天津', 'value': list1[26]}, {'name': '西藏', 'value': list1[27]},
+                    {'name': '新疆', 'value': list1[28]}, {'name': '云南', 'value': list1[29]},
+                    {'name': '浙江', 'value': list1[30]}, {'name': '香港', 'value': list3[0]},
+                    {'name': '澳门', 'value': list3[1]}, {'name': '台湾', 'value': list3[2]}];
+                var mapBoxOption = {
+                    tooltip: {
+                        formatter: '{b0}<br />新增：{c0}例',
+                    },
+                    title: {
+                        text: '本土新增确诊病例-可视化地图',
+                        subtext: {{ day_names[day_len - 1]|tojson }},
+                        left: 'center'
+                    },
+                    visualMap: {
+                        left: 'auto',
+                        min: 0,
+                        max: 256,
+                        inRange: {
+                            color: [
+                                '#ffffff',
+                                '#fcf163',
+                                '#fcf163',
+                                '#fcf163',
+                                '#fcf163',
+                                '#fde242',
+                                '#ffd314',
+                                '#ffb000',
+                                '#ff8900',
+                                '#ff5c00',
+                                '#ff0000',
+                                '#ff0000',
+                                '#ff0000',
+                                '#ff0000',
+                                '#9f2b24',
+                                '#8b2219',
+                                '#78180e',
+                                '#650f00',
+                            ]
+                        },
+                        text: ['High', 'Low'],
+                        calculable: false
+                    },
+                    series: [{
+                        type: 'map',
+                        mapType: 'china',
+                        label: {
+                            normal: {
+                                show: true, //显示省份标签
+                                textStyle: {
+                                    color: "#000"
+                                } //省份标签字体颜色
+                            },
+                            emphasis: { //对应的鼠标悬浮效果
+                                show: true,
+                                textStyle: {
+                                    color: "#800080"
+                                }
+                            }
+                        },
+                        aspectScale: 0.75,//这个参数用于 scale 地图的长宽比。最终的 aspect 的计算方式是：geoBoundingRect.width / geoBoundingRect.height * aspectScale
+                        zoom: 1.2,//当前视角的缩放比例。
+                        roam: true,
+                        itemStyle: {
+                            normal: {
+                                borderWidth: .5, //区域边框宽度
+                                borderColor: '#009fe8', //区域边框颜色
+                                areaColor: "#ffefd5", //区域颜色
+                            },
+                            emphasis: {//鼠标滑过地图高亮的相关设置
+                                borderWidth: .5,
+                                borderColor: '#4b0082',
+                                areaColor: "#ffdead",
+                            }
+                        },
+                        data: mydata
+                    }]
+                };
+                map_1.setOption(mapBoxOption);
+                window.addEventListener("resize", function () {
+                    map_1.resize();
+                });
+            </script>
+        </div>
+        <div class="row justify-content-center">
+            <div id="mapBox2" class="centerItem2"></div>
+            <script>
+                var map_2 = echarts.init(document.getElementById('mapBox2'));
+
+                function randomData() {
+                    return Math.round(Math.random() * 500);
+                }
+
+                var list2 =
+                {{ list_map[1] }}
+                var mydata = [{'name': '安徽', 'value': list2[0]}, {'name': '北京', 'value': list2[1]},
+                    {'name': '重庆', 'value': list2[2]}, {'name': '福建', 'value': list2[3]},
+                    {'name': '甘肃', 'value': list2[4]}, {'name': '广东', 'value': list2[5]},
+                    {'name': '广西', 'value': list2[6]}, {'name': '贵州', 'value': list2[7]},
+                    {'name': '海南', 'value': list2[8]}, {'name': '河北', 'value': list2[9]},
+                    {'name': '河南', 'value': list2[10]}, {'name': '黑龙江', 'value': list2[11]},
+                    {'name': '湖北', 'value': list2[12]}, {'name': '湖南', 'value': list2[13]},
+                    {'name': '吉林', 'value': list2[14]}, {'name': '江苏', 'value': list2[15]},
+                    {'name': '江西', 'value': list2[16]}, {'name': '辽宁', 'value': list2[17]},
+                    {'name': '内蒙古', 'value': list2[18]}, {'name': '宁夏', 'value': list2[19]},
+                    {'name': '青海', 'value': list2[20]}, {'name': '山东', 'value': list2[21]},
+                    {'name': '山西', 'value': list2[22]}, {'name': '陕西', 'value': list2[23]},
+                    {'name': '上海', 'value': list2[24]}, {'name': '四川', 'value': list2[25]},
+                    {'name': '天津', 'value': list2[26]}, {'name': '西藏', 'value': list2[27]},
+                    {'name': '新疆', 'value': list2[28]}, {'name': '云南', 'value': list2[29]},
+                    {'name': '浙江', 'value': list2[30]}];
+                var mapBoxOption = {
+                    tooltip: {
+                        formatter: '{b0}<br />新增：{c0}例',
+                    },
+                    title: {
+                        text: '本土新增无症状感染者-可视化地图',
+                        subtext: {{ day_names[day_len - 1]|tojson }} +'（不含港澳台）',
+                        left: 'center'
+                    },
+                    visualMap: {
+                        left: 'auto',
+                        min: 0,
+                        max: 256,
+                        inRange: {
+                            color: [
+                                '#ffffff',
+                                '#fcf163',
+                                '#fcf163',
+                                '#fcf163',
+                                '#fcf163',
+                                '#fde242',
+                                '#ffd314',
+                                '#ffb000',
+                                '#ff8900',
+                                '#ff5c00',
+                                '#ff0000',
+                                '#ff0000',
+                                '#ff0000',
+                                '#ff0000',
+                                '#9f2b24',
+                                '#8b2219',
+                                '#78180e',
+                                '#650f00',
+                            ]
+                        },
+                        text: ['High', 'Low'],
+                        calculable: false
+                    },
+                    series: [{
+                        type: 'map',
+                        mapType: 'china',
+                        label: {
+                            normal: {
+                                show: true, //显示省份标签
+                                textStyle: {
+                                    color: "#000"
+                                } //省份标签字体颜色
+                            },
+                            emphasis: { //对应的鼠标悬浮效果
+                                show: true,
+                                textStyle: {
+                                    color: "#800080"
+                                }
+                            }
+                        },
+                        aspectScale: 0.75,//这个参数用于 scale 地图的长宽比。最终的 aspect 的计算方式是：geoBoundingRect.width / geoBoundingRect.height * aspectScale
+                        zoom: 1.2,//当前视角的缩放比例。
+                        roam: true,
+                        itemStyle: {
+                            normal: {
+                                borderWidth: .5, //区域边框宽度
+                                borderColor: '#009fe8', //区域边框颜色
+                                areaColor: "#ffefd5", //区域颜色
+                            },
+                            emphasis: {//鼠标滑过地图高亮的相关设置
+                                borderWidth: .5,
+                                borderColor: '#4b0082',
+                                areaColor: "#ffdead",
+                            }
+                        },
+                        data: mydata
+                    }]
+                };
+                map_2.setOption(mapBoxOption);
+                window.addEventListener("resize", function () {
+                    map_2.resize();
+                });
+            </script>
+        </div>
+    </div>
+</section>
+
+<section class="team-area section-gap" id="team">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-70 col-lg-8">
+                <div class="title text-center">
+                    <h1 class="mb-10">港澳台疫情可视化</h1>
+                    <p>数据源自卫健委</p>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center d-flex align-items-center">
+            <div id="echarts_3" style="width: 600px;height:400px;"></div>
+            <script type="text/javascript">
+                var myChart = echarts.init(document.getElementById('echarts_3'));
+                var option;
+                var list_other_1 = {{day_names|tojson}};
+                var list_other_2 = {{other_province_data[0]}};
+                var list_other_3 = {{other_province_data[1]}};
+                var list_other_4 = {{other_province_data[2]}};
+                list_other_1.unshift('product');
+                list_other_2.unshift('香港');
+                list_other_3.unshift('澳门');
+                list_other_4.unshift('台湾');
+                setTimeout(function () {
+                    option = {
+                        legend: {},
+                        title: {
+                            text: '近日港澳台新增病例图',
+                            subtext: '--鼠标移动到折线图可显示对应饼状图--'
+                        },
+                        tooltip: {
+                            trigger: 'axis',
+                            showContent: true
+                        },
+                        dataset: {
+                            source: [
+                                list_other_1,
+                                list_other_2,
+                                list_other_3,
+                                list_other_4
+                            ]
+                        },
+                        xAxis: {
+                            type: 'category',
+
+                        },
+                        yAxis: {
+                            gridIndex: 0,
+
+                        },
+                        grid: {top: '55%'},
+                        series: [
+                            {
+                                type: 'line',
+                                smooth: true,
+                                seriesLayoutBy: 'row',
+                                emphasis: {focus: 'series'}
+                            },
+                            {
+                                type: 'line',
+                                smooth: true,
+                                seriesLayoutBy: 'row',
+                                emphasis: {focus: 'series'}
+                            },
+                            {
+                                type: 'line',
+                                smooth: true,
+                                seriesLayoutBy: 'row',
+                                emphasis: {focus: 'series'}
+                            },
+                            {
+                                type: 'pie',
+                                id: 'pie',
+                                radius: '30%',
+                                center: ['50%', '25%'],
+                                emphasis: {
+                                    focus: 'self'
+                                },
+                                label: {
+                                    formatter: '{b}: {@2012} ({d}%)'
+                                },
+                                encode: {
+                                    itemName: 'product',
+                                    value: '2022',
+                                    tooltip: '2022'
+                                }
+                            }
+                        ]
+                    };
+                    myChart.on('updateAxisPointer', function (event) {
+                        const xAxisInfo = event.axesInfo[0];
+                        if (xAxisInfo) {
+                            const dimension = xAxisInfo.value + 1;
+                            myChart.setOption({
+                                series: {
+                                    id: 'pie',
+                                    label: {
+                                        formatter: '{b}: {@[' + dimension + ']} ({d}%)'
+                                    },
+                                    encode: {
+                                        value: dimension,
+                                        tooltip: dimension
+                                    }
+                                }
+                            });
+                        }
+                    });
+                    myChart.setOption(option, true);
+                });
+                option && myChart.setOption(option);
+            </script>
+        </div>
+    </div>
+</section>
+
+<footer class="my_foot">
+    <div class="my_text">
+        <<--软工K班： 032002123 李若彤-->>
+    </div>
+</footer>
+<script src="../static/js/jquery-2.2.4.min.js"></script>
+<script src="../static/js/bootstrap.min.js"></script>
+<script src="../static/js/owl.carousel.min.js"></script>
+<script src="../static/js/jquery.sticky.js"></script>
+<script src="../static/js/jquery.magnific-popup.min.js"></script>
+<script src="../static/js/main.js"></script>
+</body>
+</html>
