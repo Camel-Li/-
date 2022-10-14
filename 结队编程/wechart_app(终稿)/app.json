@@ -1,0 +1,21 @@
+{
+    "usingComponents": {
+        "bgm": "/components/music/music"
+    },
+    "pages": [
+        "pages/index/index",
+        "pages/mode_1/mode_1",
+        "pages/mode_2/mode_2",
+        "pages/mode_3/mode_3",
+        "pages/game_1/game_1",
+        "pages/game_2/BFPL/BFPL",
+        "pages/game_2/BLPF/BLPF",
+        "pages/game_2/guess/guess",
+        "pages/game_2/guessfalse/guessfalse",
+        "pages/game_2/guesstrue/guesstrue",
+        "pages/game_2/lose/lose",
+        "pages/game_2/win/win",
+        "pages/game_1/over/over",
+        "components/music/music"
+    ]
+}
