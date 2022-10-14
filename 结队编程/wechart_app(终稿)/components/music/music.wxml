@@ -1,0 +1,7 @@
+<!--components/music/music.wxml-->
+<!-- 背景音乐组件 -->
+<view class="music-container">
+    <view class="music" catchtap="tigger">
+        <image class="img {{is_on?'move':''}}" src="../../pages/static/img/music_{{is_on?'on':'off'}}.png" style="width:75rpx;height:75rpx;"></image>
+    </view>
+</view>

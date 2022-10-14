@@ -1,0 +1,41 @@
+/* components/music/music.wxss */
+
+.music-container {
+    position: fixed;
+    bottom: 30rpx;
+    left: 30rpx;
+    color: rgba(0, 0, 0, 0);
+    z-index: 3;
+}
+
+.music image {
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.move {
+    transform-origin: center center;
+    animation: myMove 4s linear infinite;
+    -webkit-animation: myMove 4s linear infinite;
+}
+
+@keyframes myMove {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+
+}
+
+@-webkit-keyframes myMove {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
