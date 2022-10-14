@@ -1,4 +1,7 @@
 # 徽章
+（GitHub版本）
+!(https://github.com/Camel-Li/032002123/blob/main/%E7%BB%93%E9%98%9F%E7%BC%96%E7%A8%8B/logo.png?raw=true)
+（base64版本）
 ![avatar][base64str]
 # 运行环境
 微信开发者工具
