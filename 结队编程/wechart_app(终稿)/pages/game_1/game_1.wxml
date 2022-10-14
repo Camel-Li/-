@@ -1,0 +1,154 @@
+<!--pages/index/index.wxml-->
+<bgm />
+<view class="content">
+    <!--pics文件夹下的background.jpg文件-->
+
+    <image class='background' src="https://s2.loli.net/2022/10/12/SI3nfH1FmZoUqOM.gif" mode="aspectFill"></image>
+
+    <!--页面其它部分-->
+</view>
+<view>
+    <image class='back' src='../static/K.png'></image>
+</view>
+<view class="main">
+    <view class="cover"></view>
+    <view class="box">
+        <view class="board">
+            <image class='{{bg1}}' src="https://s1.ax1x.com/2022/10/12/xUuETO.png" mode="aspectFill"></image>
+            <view class="column">
+                <view class="row1">
+                    <view class="item" bindtap="clickPosition" data-column="1" data-row="1" data-num="1">
+
+                        <image src="{{pmatrix1[0][0]}}"></image>
+                    </view>
+                </view>
+                <view class="row2">
+                    <view class="item" bindtap="clickPosition" data-column="1" data-row="2" data-num="1">
+                        <image src="{{pmatrix1[0][1]}}"></image>
+                    </view>
+                </view>
+                <view class="row3">
+                    <view class="item" bindtap="clickPosition" data-column="1" data-row="3" data-num="1">
+
+                        <image src="{{pmatrix1[0][2]}}"></image>
+                    </view>
+                </view>
+            </view>
+            <view class="column">
+                <view class="row1">
+                    <view class="item" bindtap="clickPosition" data-column="2" data-row="1" data-num="1">
+
+                        <image src="{{pmatrix1[1][0]}}"></image>
+                    </view>
+                </view>
+                <view class="row2">
+                    <view class="item" bindtap="clickPosition" data-column="2" data-row="2" data-num="1">
+
+                        <image src="{{pmatrix1[1][1]}}"></image>
+                    </view>
+                </view>
+                <view class="row3">
+                    <view class="item" bindtap="clickPosition" data-column="2" data-row="3" data-num="1">
+
+                        <image src="{{pmatrix1[1][2]}}"></image>
+                    </view>
+                </view>
+            </view>
+            <view class="column">
+                <view class="row1">
+                    <view class="item" bindtap="clickPosition" data-column="3" data-row="1" data-num="1">
+
+                        <image src="{{pmatrix1[2][0]}}"></image>
+                    </view>
+                </view>
+                <view class="row2">
+                    <view class="item" bindtap="clickPosition" data-column="3" data-row="2" data-num="1">
+
+                        <image src="{{pmatrix1[2][1]}}"></image>
+                    </view>
+                </view>
+                <view class="row3">
+                    <view class="item" bindtap="clickPosition" data-column="3" data-row="3" data-num="1">
+
+                        <image src="{{pmatrix1[2][2]}}"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="menu">
+            <view class="dice">
+                <image src="{{diceNum}}"></image>
+            </view>
+            <view class='points'>
+                <view>棋手2得分：{{point1}}</view>
+                <view>棋手1得分：{{point2}}</view>
+            </view>
+
+        </view>
+        <view class="board">
+            <image class='{{bg2}}' src="https://s1.ax1x.com/2022/10/12/xUuETO.png" mode="aspectFill"></image>
+            <view class="column">
+                <view class="row1">
+                    <view class="item" bindtap="clickPosition" data-column="1" data-row="1" data-num="2">
+
+                        <image src="{{pmatrix2[0][0]}}"></image>
+                    </view>
+                </view>
+                <view class="row2">
+                    <view class="item" bindtap="clickPosition" data-column="1" data-row="2" data-num="2">
+
+                        <image src="{{pmatrix2[0][1]}}"></image>
+                    </view>
+                </view>
+                <view class="row3">
+                    <view class="item" bindtap="clickPosition" data-column="1" data-row="3" data-num="2">
+
+                        <image src="{{pmatrix2[0][2]}}"></image>
+                    </view>
+                </view>
+            </view>
+            <view class="column">
+                <view class="row1">
+                    <view class="item" bindtap="clickPosition" data-column="2" data-row="1" data-num="2">
+
+                        <image src="{{pmatrix2[1][0]}}"></image>
+                    </view>
+                </view>
+                <view class="row2">
+                    <view class="item" bindtap="clickPosition" data-column="2" data-row="2" data-num="2">
+
+                        <image src="{{pmatrix2[1][1]}}"></image>
+                    </view>
+                </view>
+                <view class="row3">
+                    <view class="item" bindtap="clickPosition" data-column="2" data-row="3" data-num="2">
+
+                        <image src="{{pmatrix2[1][2]}}"></image>
+                    </view>
+                </view>
+            </view>
+            <view class="column">
+                <view class="row1">
+                    <view class="item" bindtap="clickPosition" data-column="3" data-row="1" data-num="2">
+
+                        <image src="{{pmatrix2[2][0]}}"></image>
+                    </view>
+                </view>
+                <view class="row2">
+                    <view class="item" bindtap="clickPosition" data-column="3" data-row="2" data-num="2">
+
+                        <image src="{{pmatrix2[2][1]}}"></image>
+                    </view>
+                </view>
+                <view class="row3">
+                    <view class="item" bindtap="clickPosition" data-column="3" data-row="3" data-num="2">
+
+                        <image src="{{pmatrix2[2][2]}}"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+
+</view>

@@ -1,0 +1,57 @@
+/* pages/mode_2/mode_2.wxss */
+page {
+    height: 100%;
+}
+
+.background {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-size: 100% 100%;
+    z-index: -1;
+}
+
+.back {
+    position: fixed;
+    z-index: 2;
+    width: 135rpx;
+    height: 100rpx;
+    margin-top: 70rpx;
+    margin-left: 25rpx;
+}
+
+.box .button image {
+    width: 375rpx;
+    height: 125rpx;
+}
+
+.box .title image {
+    height: 400rpx;
+    width: 600rpx;
+}
+
+.box {
+    height: 100%;
+    width: 750rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.box .title {
+    height: 450rpx;
+    display: flex;
+    flex-direction: column;
+}
+
+.box .button {
+    height: 450rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.button_hover_list {
+    opacity: 0.5;
+}

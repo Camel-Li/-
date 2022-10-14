@@ -1,0 +1,56 @@
+/* pages/win/win.wxss */
+page {
+    height: 100%;
+}
+
+.background {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-size: 100% 100%;
+    z-index: -2;
+}
+
+.cover {
+    height: 5%;
+}
+
+.main {
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.ig {
+    height: 300rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.i1 {
+    height: 105rpx;
+    width: 400rpx;
+}
+
+.i2 {
+    height: 105rpx;
+    width: 400rpx;
+}
+
+.t1 {
+    font-size: 100rpx;
+    font-weight: 600;
+    font-family: cursive;
+}
+
+.t2 {
+    font-size: 50rpx;
+}
+
+.button_hover_list {
+    opacity: 0.5;
+}

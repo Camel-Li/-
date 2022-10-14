@@ -1,0 +1,130 @@
+/* pages/index/index.wxss */
+page {
+    height: 100%;
+}
+
+.background {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-size: 100% 100%;
+    z-index: -2;
+}
+
+.back {
+    position: fixed;
+    z-index: 2;
+    width: 135rpx;
+    height: 100rpx;
+    margin-top: 50rpx;
+    margin-left: 20rpx;
+}
+
+.background1 {
+    width: 485rpx;
+    height: 485rpx;
+    position: fixed;
+    background-size: 100% 100%;
+    z-index: -1;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.5;
+}
+
+.background2 {
+    width: 485rpx;
+    height: 485rpx;
+    position: fixed;
+    background-size: 100% 100%;
+    z-index: -1;
+    justify-content: center;
+    align-items: center;
+}
+
+.cover {
+    height: 75rpx;
+}
+
+.main {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.box {
+    height: 1100rpx;
+    width: 450rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.board {
+    height: 450rpx;
+    width: 450rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.column {
+    height: 450rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+
+.menu {
+    height: 200rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.points {
+    height: 150rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.item {
+    width: 150rpx;
+    height: 150rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.item image {
+    width: 100rpx;
+    height: 100rpx;
+    opacity: 0.8;
+}
+
+.dice {
+    height: 150rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dice image {
+    width: 125rpx;
+    height: 125rpx;
+}
+
+.start {
+    height: 150rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

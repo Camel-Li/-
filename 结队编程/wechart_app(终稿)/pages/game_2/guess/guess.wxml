@@ -1,0 +1,22 @@
+<!--pages/guess/guess.wxml-->
+<bgm />
+<view class="content">
+    <!--pics文件夹下的background.jpg文件-->
+
+    <image class='background' src="https://s2.loli.net/2022/10/12/SI3nfH1FmZoUqOM.gif" mode="aspectFill"></image>
+
+    <!--页面其它部分-->
+</view>
+
+<view class='cover'></view>
+<view class='main'>
+    <view class='main-box'>
+        <image class='t' src="https://s1.ax1x.com/2022/10/12/xUMGWQ.png"></image>
+        <view hover-class="button_hover_list" hover-start-time="20" hover-stay-time="70">
+            <image class='i' src="https://s1.ax1x.com/2022/10/12/xUuiOx.png" bindtap="jmp" data-a='1'></image>
+        </view>
+        <view hover-class="button_hover_list" hover-start-time="20" hover-stay-time="70">
+            <image class='i' src="https://s1.ax1x.com/2022/10/12/xUukm6.png" bindtap="jmp" data-a='0'></image>
+        </view>
+    </view>
+</view>
